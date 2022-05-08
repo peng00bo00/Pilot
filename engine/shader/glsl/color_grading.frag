@@ -15,13 +15,13 @@ void main()
     highp ivec2 lut_tex_size = textureSize(color_grading_lut_texture_sampler, 0);
     highp float _COLORS      = float(lut_tex_size.y);
 
-    highp vec4 color       = subpassLoad(in_color).rgba;
+    highp vec4 color         = subpassLoad(in_color).rgba;
 
     // find the level with color.b
     highp float width = float(lut_tex_size.x);
     highp float n_slices = width / _COLORS;
 
-    highp float l = color.b * n_slices;
+    highp float l = color.b * (n_slices-1.f);
 
     // texture coordinates
     highp float v = color.g;
