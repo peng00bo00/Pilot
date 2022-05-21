@@ -39,7 +39,6 @@ namespace Pilot
         inline SurfaceUI() : m_tmp_uistate(NULL) {}
         UIState*     m_tmp_uistate;
         virtual void onTick(UIState* uistate) = 0;
-        virtual void registerInput()          = 0;
         float        getContentScale() const;
 
     protected:
@@ -81,9 +80,8 @@ namespace Pilot
         std::shared_ptr<SurfaceIO> getSurfaceIO() { return m_io; }
 
         void   updateWindow(float pos_x, float pos_y, float width, float height) const;
-        size_t updateCursorOnAxis(int axis_mode, const Vector2& cursor_uv, const Vector2& window_size) const;
         size_t getGuidOfPickedMesh(const Vector2& picked_uv) const;
-
+        void setSceneSelectedAxis(size_t selected_axis);
     protected:
         std::shared_ptr<SurfaceIO>  m_io;
         std::shared_ptr<SurfaceRHI> m_rhi;

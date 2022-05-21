@@ -9,7 +9,7 @@ namespace Pilot
 {
     /// helper function: split the input string with separator, and filter the substring
     std::vector<std::string>
-    splitString(std::string input_string, std::string separator, std::string filter_string = "")
+    splitString(std::string input_string, const std::string& separator, const std::string& filter_string = "")
     {
         std::vector<std::string> output_string;
         int                      pos = input_string.find(separator);

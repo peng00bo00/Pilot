@@ -66,14 +66,7 @@ namespace Pilot
         // for editor use
         void     updateUIRenderSceneViewport(VkViewport render_scene_viewport);
         uint32_t getGuidOfPickedMesh(Vector2 picked_uv);
-        size_t   updateCursorOnAxis(int     axis_mode,
-                                    Vector2 cursor_uv,
-                                    Vector2 game_engine_window_size,
-                                    float   camera_fov,
-                                    Vector3 camera_forward,
-                                    Vector3 camera_up,
-                                    Vector3 camera_right,
-                                    Vector3 camera_position);
+        void     setSelectedAxis(size_t selected_axis) { m_selected_axis = selected_axis; }
 
         // rendering config
         static bool m_enable_validation_Layers;
@@ -118,6 +111,7 @@ namespace Pilot
         PPointLightShadowPass       m_point_light_shadow_pass;
         PMainCameraPass             m_main_camera_pass;
         PColorGradingPass           m_color_grading_pass;
+        PFXAAPass                   m_fxaa_pass;
         PToneMappingPass            m_tone_mapping_pass;
         PUIPass                     m_ui_pass;
         PCombineUIPass              m_combine_ui_pass;
